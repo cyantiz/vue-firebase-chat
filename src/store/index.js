@@ -9,12 +9,17 @@ import config from '../firebase/config'
 firebase.initializeApp(config)
 Vue.use(Vuex)
 
-
 const state = {
-  db: firebase.firestore(),
-  user: firebase.auth().currentUser
+	db: firebase.firestore(),
+	user: firebase.auth().currentUser
 }
 export default new Vuex.Store({
-  state,
-  modules: {}
+	state,
+	mutations: {
+		setUser(state, payload) {
+			state.user = payload;
+			console.log("user changed: ", state.user);
+		}
+	},
+	modules: {}
 })
