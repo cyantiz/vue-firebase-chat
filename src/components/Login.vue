@@ -13,10 +13,18 @@
 <script>
 export default {
     methods: {
-        handleLogin() {
-            this.$store.dispatch("setLoading", true);
-            this.$store.dispatch("login");
-            this.$store.dispatch("setLoading", false);
+        async handleLogin() {
+            await this.$store.dispatch("setLoading", true);
+            try {
+                await this.$store.dispatch("login");
+            }
+            catch(err) {
+                alert("Login failed");
+            }
+            finally {
+                await this.$store.dispatch("setLoading", false);
+            }
+            
         },
     },
 };
