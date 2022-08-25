@@ -29,7 +29,7 @@ export default {
         },
         loading() {
             return this.$store.state.loading;
-        }
+        }   
     },
     created() {
         // authentication on app load
@@ -38,7 +38,7 @@ export default {
         });
 
         // realtime updating of messages
-        this.$store.getters.db.collection("messages").orderBy("createdAt", "desc").onSnapshot(async (snapshot) => {
+        firebase.firestore().collection("messages").orderBy("createdAt", "desc").onSnapshot(async (snapshot) => {
             await this.$store.dispatch("setLoading", true);
             const messages = await snapshot.docs.map((doc) => {
                 return {

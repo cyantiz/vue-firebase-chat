@@ -8,4 +8,4 @@ const firebaseConfig = {
 	measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 }
 
-export default firebaseConfig;	
+export default firebaseConfig;
