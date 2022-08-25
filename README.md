@@ -1,5 +1,9 @@
 # vue-firebase-chat
 
+## Demo
+
+https://realtime-chat-vue-1e1fa.web.app/
+
 ## Project setup
 ```
 yarn install
